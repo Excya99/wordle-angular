@@ -1,0 +1,42 @@
+<!--
+During debug/testing:
+<p>Current Guess: {{ gameForm.value.guess }}</p>
+<p>Current Guess Info: {{ guess | json }}</p>
+-->
+<p><strong>Winstreak: {{ winstreak }}</strong></p>
+
+<form #gameForm="ngForm">
+    <div class="mb-3">
+        <label for="guess" class="form-label"><strong>Click [Start Game] before entering your guess to play!</strong></label>
+        <input required [(ngModel)]="guess.guess" type="text" class="form-control" name="guess" placeholder="Enter guess here">
+    </div>
+    <small class="text-danger" *ngIf="gameForm.value.guess.length < 1">Please enter a guess</small>
+    <div class="mb-3">
+        <button class="btn btn-success" (click)="checkGuess()" [disabled]="gameForm.form.invalid">Check Guess</button>
+    </div>
+    <div class="mb-3">
+        <button [ngClass]="['btn btn-danger']" (click)="startGame()">Start Game</button>
+    </div>
+</form>
+
+<p [ngStyle]="{'color': 'red'}"><em>CHEAT MODE (random word from PHP): {{ targetWord }}</em></p>
+
+<h3>Your Previous Guesses:</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Guess</th>
+            <th>Correct letters matched</th>
+            <th>Correct positions matched</th>
+            <th>Guess length</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let g of previousGuesses">
+            <td>{{ g.guess }}</td>
+            <td>{{ g.same_letter }}</td>
+            <td>{{ g.same_letter_position }}</td>
+            <td>{{ g.length }}</td>
+        </tr>
+    </tbody>
+</table>
