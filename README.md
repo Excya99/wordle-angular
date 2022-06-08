@@ -5,13 +5,13 @@ My own, slightly enhanced, wordle application built with client-side framework A
     - easily disable this feature by commenting out single HTML line before hosting/serving the application
 
 # Breakdown
-1. Provided all files within the source (src) directory of the Wordle application
-    - due to the size of the complete Angular application and all dependency files generated being too large
-    - everything I wrote was within the "src" directory, therefore to use these files:
-            1. in console run CLI command "ng new wordle"
-            2. Press "Enter" to accept initial setup questions (use CSS)
-            3. replace the default generated "src" folder with this repository's "src" folder
-            4. edit some files as noted below
+- Provided all files within the source (src) directory of the Wordle application
+    1. due to the size of the complete Angular application and all dependency files generated being too large
+    2. everything I wrote was within the "src" directory, therefore to use these files:
+        - in console run CLI command "ng new wordle"
+        - Press "Enter" to accept initial setup questions (use CSS)
+        - replace the default generated "src" folder with this repository's "src" folder
+        - edit some files as noted below
 
 # Notes
 1. The wordle_api server-side file would need to be supplied a source of words in a text file (.txt)
